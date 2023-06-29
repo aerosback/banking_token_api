@@ -1,0 +1,34 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "api restgul node.js express",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "db": "mongod --dbpath /usr/local/var/mongodb/ --rest"
+  },
+  "author": "Alexander Nunez",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.13",
+    "winston": "*",
+    "jsonwebtoken": "^8.5.1",
+    "dotenv": "*"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}

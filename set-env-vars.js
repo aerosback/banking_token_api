@@ -1,0 +1,1 @@
+process.env.SIGN_IN_EXPIRATION_SECS = 3600;
