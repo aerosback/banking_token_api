@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "262c6405-400a-43ba-a889-d366b8630ebc",
+		"name": "set requests banking app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Token pk_test_1234444444",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mati/1.0",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Length",
+						"value": "1048",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Forwarded-For",
+						"value": "52.55.16.54",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forwarded-Proto",
+						"value": "http",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Signature",
+						"value": "f2861e22782f1a91bb7a0b57eab374055fe60e44a44c5a6d1e003fa431cf9b2f",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Token b02d1f42bf0f0336e26601adca3e3433c774274e",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "BEARER",
+						"value": "pk_test_abcdefghijk",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Referer",
+						"value": "localhost:",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"card_number\": \"10345678912345\",\n    \"cvv\": \"120\",\n    \"expiration_month\": \"10\",\n    \"expiration_year\": \"2023\",\n    \"email\": \"demomail11@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tokens/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tokens",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get token info",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Token pk_test_1234444444",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mati/1.0",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Length",
+						"value": "1048",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Forwarded-For",
+						"value": "52.55.16.54",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Forwarded-Proto",
+						"value": "http",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-Signature",
+						"value": "f2861e22782f1a91bb7a0b57eab374055fe60e44a44c5a6d1e003fa431cf9b2f",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Token b02d1f42bf0f0336e26601adca3e3433c774274e",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "BEARER",
+						"value": "pk_test_abcdefghijk",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Referer",
+						"value": "localhost:",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjYXJkX251bWJlciI6IjEwMzQ1Njc4OTEyMzQ1IiwiZW1haWwiOiJkZW1vbWFpbDExQGdtYWlsLmNvbSIsImV4cGlyYXRpb25fbW9udGgiOiIxMCIsImV4cGlyYXRpb25feWVhciI6IjIwMjMiLCJpYXQiOjE2ODgwNjE0MDMsImV4cCI6MTY4ODA2MTQwNn0.ga9fBkknNHJLTpZga5LTWjjTbeMgnXyb8KNl5XzrYyo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tokens/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tokens",
+						"info"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
