@@ -2,7 +2,7 @@ version: "3"
 services:
   mongodb:
     container_name: mongodb
-    image: mongo
+    image: mongo:6.0.5
     env_file: ./.env
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
@@ -11,6 +11,8 @@ services:
       - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
     volumes:
       - db:/data/db
+    networks:
+      - node_network
   app:
     container_name: api_rest
     depends_on:
@@ -30,6 +32,11 @@ services:
       - DB_PORT=$MONGODB_DOCKER_PORT
       - SIGN_IN_SECRET=$SIGN_IN_SECRET
       - SIGN_IN_EXPIRATION_SECS=$SIGN_IN_EXPIRATION_SECS
+    networks:
+      - node_network
 
 volumes:
   db:
+
+networks:
+  node_network:

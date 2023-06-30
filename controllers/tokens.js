@@ -24,17 +24,16 @@ async function createToken(req, res) {
   const token = sign_in(payload)
   token_model.token_value = token
 
-  await token_model
-    .save()
-    .then(data => {
-      res.send({payload, token});
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Token."
-      });
+  try {
+    await token_model.save();
+    res.send({payload, token});
+  }
+  catch(err) {
+    res.status(500).send({
+      message:
+        err.message || "Some error occurred while creating the Token."
     });
+  }
 }
 
 async function getTokenInfo(req, res) {

@@ -88,13 +88,13 @@ module.exports.sign_in = (payload) => {
     const SIGN_IN_SECRET = process.env.SIGN_IN_SECRET
     let token = ""
     const normalized_payload = normalize_payload(payload)
-    const expiration_secs = process.env.SIGN_IN_EXPIRATION_SECS
-    logger.debug(`expiration_secs: ${expiration_secs}.`);
+    const expiration_mins = Math.floor(process.env.SIGN_IN_EXPIRATION_SECS / 60)
+    logger.debug(`-------> expiration_mins: ${expiration_mins}.`);
     try{
         token = jwt.sign(
             normalized_payload,
             SIGN_IN_SECRET,
-            { expiresIn: expiration_secs }
+            { expiresIn: `${expiration_mins}m` }
         );
     }
     catch(err){
@@ -121,7 +121,6 @@ module.exports.verify = (token, payload) => {
         }
         return {is_valid, expired}
     }
-    //logger.debug(JSON.stringify([normalized_payload, decoded_payload]))
     is_valid = JSON.stringify(normalized_payload) === JSON.stringify(decoded_payload)
     return {is_valid, expired}
 };

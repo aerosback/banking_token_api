@@ -8,7 +8,10 @@ const logger = require('./utils/logger');
 
 const connectDB = async () => {
   try{
-    await mongoose.connect(config.db_connection);
+    await mongoose.connect(config.db_connection, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
     logger.debug(`Mongoose Connection Succesfully: ${config.db_connection}.`)
   }
   catch(err){
@@ -19,5 +22,5 @@ const connectDB = async () => {
 connectDB()
 
 app.listen(config.port, () => {
-  console.log('API REST running on localhost:' + config.port);
+  console.log('API REST running on server:' + config.port);
 });
